@@ -1,0 +1,6 @@
+{"patient_id": "demo_n001", "split": "train", "label": 0, "rel_dir": "demo/n001"}
+{"patient_id": "demo_p001", "split": "train", "label": 1, "rel_dir": "demo/p001"}
+{"patient_id": "demo_n002", "split": "val", "label": 0, "rel_dir": "demo/n002"}
+{"patient_id": "demo_p002", "split": "val", "label": 1, "rel_dir": "demo/p002"}
+{"patient_id": "demo_n003", "split": "test", "label": 0, "rel_dir": "demo/n003"}
+{"patient_id": "demo_p003", "split": "test", "label": 1, "rel_dir": "demo/p003"}

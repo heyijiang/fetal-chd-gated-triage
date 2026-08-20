@@ -1,0 +1,31 @@
+# Byte-compiled
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Weights and images — never commit
+*.pt
+*.pth
+*.onnx
+*.ckpt
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.tif
+*.tiff
+*.dcm
+*.mp4
+*.avi
+
+# Private caches / runs
+data/
+outputs/
+logs_parallel/
+*.jsonl
+!examples/*.jsonl
+
+# OS
+.DS_Store

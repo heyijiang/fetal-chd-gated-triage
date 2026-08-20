@@ -1,0 +1,8 @@
+torch>=2.1
+numpy>=1.24
+scikit-learn>=1.3
+pillow>=10.0
+# Optional: encode new frames with FetalCLIP (public weights, not shipped)
+open_clip_torch>=2.24
+# Optional: run YOLO tagging on new images (weights NOT shipped)
+# ultralytics>=8.0

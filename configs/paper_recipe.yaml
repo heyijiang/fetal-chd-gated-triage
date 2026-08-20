@@ -1,0 +1,35 @@
+# Paper recipe (CMPB / homologous four-view fusion)
+# Seeds 42-51 unless a table says otherwise. Main fusion: frozen FetalCLIP + view_anat.
+
+fusion:
+  feat_model: m1
+  m0_features: none
+  extra_feats: view_anat
+  within_view_pool: frame_attn
+  missing_fill: zero
+  pool_mask: present
+  fallback: drop
+  clip_norm: hybrid
+  embed_load_only: true
+  mvp: true
+  lambda_mvp: 0.1
+  epochs: 40
+  patience: 10
+  seeds: [42, 43, 44, 45, 46, 47, 48, 49, 50, 51]
+
+heads:
+  alvg: anatomy_graph          # fixed anatomy adjacency (design prior)
+  gnn: graph_transformer       # fully connected among present slots
+  mil: attention_mil
+  transformer: feature_transformer
+
+primary_result: missing_view_keep_k   # Table missing_main
+auxiliary_keep4: fusion_main
+graph_ablation_modes: [anatomy, random, full, mean, view_mean]
+
+timing:
+  device: RTX 4090 D
+  pytorch: 2.7.0+cu128
+  yolo_conf: 0.25
+  yolo_imgsz: 640
+  note: YOLO checkpoint is not in this repo; pass YOLO_WEIGHTS if profiling gated e2e.
