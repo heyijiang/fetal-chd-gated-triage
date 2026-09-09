@@ -46,7 +46,7 @@ def main() -> None:
     ax.tick_params(length=0)
     ax.set_xlabel("Target view", fontsize=9)
     ax.set_ylabel("Source view", fontsize=9)
-    ax.set_title("Anatomy adjacency\n(shared YOLO structures)", fontsize=10, pad=6)
+    ax.set_title("Anatomy adjacency\n(shared cardiac structures)", fontsize=10, pad=6)
     for i in range(4):
         for j in range(4):
             val = int(ADJ[i, j] > 0.5)

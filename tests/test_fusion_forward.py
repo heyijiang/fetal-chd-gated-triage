@@ -1,4 +1,4 @@
-"""CPU smoke test: ALVG / MIL / Transformer forward without images or YOLO."""
+"""CPU smoke test: ALVG / MIL / Transformer forward without images or a detector."""
 from __future__ import annotations
 
 import sys

@@ -1,15 +1,15 @@
-# YOLO-gated four-view fetal CHD triage (code drop)
+# View-gated four-view fetal CHD triage (code drop)
 
-Companion code for the manuscript *YOLO-Gated, Missing-View-Robust Fetal CHD Triage: A Low-Cost Four-View Fusion Recipe*.
+Companion code for the manuscript *Multi-View Gated Fusion with an Anatomy-Linked Graph for Fetal CHD Referral Triage*.
 
 This is a **sanitised** extract of the training / evaluation scripts. It does **not** contain:
 
 - private ultrasound
-- the hospital-trained YOLO checkpoint (`yolo_full_with_tags_best.pt`)
+- the hospital-trained plane+anatomy detector checkpoint (`yolo_full_with_tags_best.pt`)
 - FetalCLIP weights (download from Maani et al., *npj Digital Medicine* 2026)
 - CARDIUM pixels (request from the CARDIUM authors)
 
-Published fusion tables use **precomputed embedding + tag caches** (`--embed-load-only`). You only need YOLO weights if you tag new images or run the optional wall-clock script.
+Published fusion tables use **precomputed embedding + tag caches** (`--embed-load-only`). You only need detector weights if you tag new images or run the optional wall-clock script.
 
 ## Layout
 
@@ -56,19 +56,19 @@ Point caches with env vars (see `experiments/run_tertiary_fusion_worker.sh`):
 
 ```bash
 export MANIFEST=/path/to/manifest.jsonl
-export TAGS=/path/to/yolo_image_tags.jsonl
+export TAGS=/path/to/image_tags.jsonl
 export FEAT_CACHE=/path/to/m0_feature_cache.jsonl
 export EMBED_CACHE=/path/to/fetalclip_embeddings.jsonl
 ```
 
-Full-frame patient-mean probe (no YOLO):
+Full-frame patient-mean probe (no view gate):
 
 ```bash
 python -u experiments/private_fetalclip_fullframe_linear.py \
   --embed-load-only --cache "$EMBED_CACHE" --manifest "$MANIFEST"
 ```
 
-Optional gated vs full-frame wall-clock (you supply YOLO weights):
+Optional gated vs full-frame wall-clock (you supply detector weights):
 
 ```bash
 export YOLO_WEIGHTS=/your/detector.pt
@@ -80,11 +80,11 @@ python -u experiments/profile_yolo_clip_e2e.py --device 0 --max-exams 32
 | Item | Value |
 |---|---|
 | Fusion seeds | 42–51 (CARDIUM in-domain 42–44) |
-| Detector (not shipped) | `yolo_full_with_tags_best.pt`, conf 0.25, imgsz 640 |
+| Detector (not shipped) | plane+anatomy checkpoint `yolo_full_with_tags_best.pt`, conf 0.25, imgsz 640 |
 | Appearance | frozen FetalCLIP, dim 768 |
 | Main channels | CLIP + `view_anat`, `m0=none` |
 | Primary table | missing-view keep-$k$ (`run_tertiary_missing_view_heads.sh`) |
 
 ## License
 
-MIT for this code drop. FetalCLIP, YOLO/Ultralytics, and CARDIUM remain under their own licenses.
+MIT for this code drop. FetalCLIP, Ultralytics, and CARDIUM remain under their own licenses.

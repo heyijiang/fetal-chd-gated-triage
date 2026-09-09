@@ -29,3 +29,14 @@ logs_parallel/
 
 # OS
 .DS_Store
+
+# Editor / agent IDE junk — never ship
+.cursor/
+.cursorrules
+.cursorignore
+.vscode/
+.idea/
+*.code-workspace
+AGENTS.md
+.claude/
+CLAUDE.md

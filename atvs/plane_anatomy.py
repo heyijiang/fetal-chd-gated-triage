@@ -1,4 +1,4 @@
-"""Plane-specific key anatomy ids (YOLO class ids). Vendored for the public drop."""
+"""Plane-specific key anatomy ids (detector class ids). Vendored for the public drop."""
 
 from __future__ import annotations
 

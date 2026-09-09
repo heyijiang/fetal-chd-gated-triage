@@ -1,7 +1,7 @@
 # Cache format (no private images)
 
 Fusion training in this drop is **cache-first**: `--embed-load-only` reads
-FetalCLIP vectors + YOLO *tags* (JSONL), not pixels and not a `.pt` detector.
+FetalCLIP vectors + plane/anatomy *tags* (JSONL), not pixels and not a `.pt` detector.
 
 ## Manifest (one exam / folder per line)
 
@@ -11,7 +11,7 @@ FetalCLIP vectors + YOLO *tags* (JSONL), not pixels and not a `.pt` detector.
 
 `label` is 1 for CHD, 0 for screening-negative.
 
-## Image tags (YOLO outputs, not weights)
+## Image tags (detector outputs, not weights)
 
 Each line is one frame: plane tag, anatomy boxes, mapped CARDIUM view
 (`four_chamber` / `lvot` / `rvot` / `vvt`). Schema matches
@@ -29,6 +29,6 @@ weights (not shipped here).
 ## What is not in this repository
 
 - Private tertiary ultrasound
-- Hospital-trained YOLO checkpoint `yolo_full_with_tags_best.pt`
+- Hospital-trained plane+anatomy checkpoint `yolo_full_with_tags_best.pt`
 - FetalCLIP `.pt` weights (get them from Maani et al., npj Digital Medicine 2026)
 - CARDIUM pixels (request from the CARDIUM authors)

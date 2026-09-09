@@ -3,7 +3,7 @@
 
 ``graph_transformer``: generic cross-view imputation + Transformer.
 ``anatomy_graph`` (ALVG): same stack but message passing / self-attention
-restricted to view pairs that share YOLO-detected cardiac structures
+restricted to view pairs that share detector-tagged cardiac structures
 (e.g., LV in four-chamber and LVOT).
 """
 

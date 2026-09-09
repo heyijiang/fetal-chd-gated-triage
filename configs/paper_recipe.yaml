@@ -32,4 +32,4 @@ timing:
   pytorch: 2.7.0+cu128
   yolo_conf: 0.25
   yolo_imgsz: 640
-  note: YOLO checkpoint is not in this repo; pass YOLO_WEIGHTS if profiling gated e2e.
+  note: Plane+anatomy detector checkpoint is not in this repo; pass YOLO_WEIGHTS if profiling gated e2e.

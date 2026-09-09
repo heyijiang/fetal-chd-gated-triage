@@ -1,4 +1,4 @@
-"""YOLO helpers. Weights are NOT shipped; pass --yolo-weights or YOLO_WEIGHTS.
+"""Detector I/O helpers (Ultralytics backend). Weights are NOT shipped; pass --yolo-weights or YOLO_WEIGHTS.
 
 Main paper fusion runs with precomputed embedding/tag caches (--embed-load-only)
 and never needs a detector checkpoint.
